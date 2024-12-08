@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Skill from "./pages/Skillset";
 import Project from "./pages/Projects";
 import MyLife from "./pages/MyLife";
+import Quote from "./pages/Quote";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -38,6 +39,7 @@ function App() {
           <Route path="/skillset" element={<Skill />} />
           <Route path="/project" element={<Project />} />
           <Route path="/mylife" element={<MyLife />} />
+          <Route path="/quote" element={<Quote />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />

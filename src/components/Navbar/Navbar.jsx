@@ -7,9 +7,9 @@ import {
   AiFillHome,
   AiFillProject,
   AiFillExperiment,
-  AiFillContacts
+  AiFillContacts,
+  AiFillQuestionCircle,
 } from "react-icons/ai";
-
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
@@ -33,9 +33,8 @@ function NavBar() {
       className={navColour ? "sticky" : "navbar"}
     >
       <Container>
-
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav style={{margin: "0 auto"}} defaultActiveKey="#home">
+          <Nav style={{ margin: "0 auto" }} defaultActiveKey="#home">
             <Nav.Item>
               <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
                 <AiFillHome style={{ marginBottom: "2px" }} /> Домой
@@ -58,10 +57,7 @@ function NavBar() {
                 to="/project"
                 onClick={() => updateExpanded(false)}
               >
-                <AiFillProject
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                Портфолио
+                <AiFillProject style={{ marginBottom: "2px" }} /> Портфолио
               </Nav.Link>
             </Nav.Item>
 
@@ -72,6 +68,17 @@ function NavBar() {
                 onClick={() => updateExpanded(false)}
               >
                 <AiFillContacts style={{ marginBottom: "2px" }} /> Моя жизнь
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/quote"
+                onClick={() => updateExpanded(false)}
+              >
+                <AiFillQuestionCircle style={{ marginBottom: "2px" }} />{" "}
+                Случайная цитата
               </Nav.Link>
             </Nav.Item>
           </Nav>
