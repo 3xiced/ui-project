@@ -9,13 +9,16 @@ const Quote = () => {
     // Выполняем запрос к API
     const fetchQuote = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/today", {
-          mode: "cors",
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          "https://cors-anywhere.herokuapp.com/https://zenquotes.io/api/today",
+          {
+            mode: "cors",
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const data = await response.json();
         if (data && data.length > 0) {
           setQuote(data[0].q);
