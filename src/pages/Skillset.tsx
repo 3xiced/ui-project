@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 import Techstack from "../components/Skillset/Techstack";
 import Toolstack from "../components/Skillset/Toolstack";
 
-const Skillset: React.FC = () => {
+const Skillset = () => {
   const [scrollCount, setScrollCount] = useState<number>(0); // Счётчик прокруток
   const [isFlipped, setIsFlipped] = useState<boolean>(false); // Флаг переворота страницы
 
