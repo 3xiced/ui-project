@@ -4,15 +4,15 @@ import { Container } from "react-bootstrap";
 import Techstack from "../components/Skillset/Techstack";
 import Toolstack from "../components/Skillset/Toolstack";
 
-const Skillset = () => {
-  const [scrollCount, setScrollCount] = useState(0); // Счётчик прокруток
-  const [isFlipped, setIsFlipped] = useState(false); // Флаг переворота страницы
+const Skillset: React.FC = () => {
+  const [scrollCount, setScrollCount] = useState<number>(0); // Счётчик прокруток
+  const [isFlipped, setIsFlipped] = useState<boolean>(false); // Флаг переворота страницы
 
   // Функция для проверки достижения конца страницы
-  const handleScroll = () => {
-    const scrollTop = window.scrollY; // Текущая прокрутка
-    const windowHeight = window.innerHeight; // Высота видимой области
-    const fullHeight = document.documentElement.scrollHeight; // Полная высота страницы
+  const handleScroll = (): void => {
+    const scrollTop: number = window.scrollY; // Текущая прокрутка
+    const windowHeight: number = window.innerHeight; // Высота видимой области
+    const fullHeight: number = document.documentElement.scrollHeight; // Полная высота страницы
 
     if (scrollTop + windowHeight >= fullHeight - 10) {
       // Если достигнут конец страницы
@@ -34,10 +34,12 @@ const Skillset = () => {
   useEffect(() => {
     if (scrollCount >= 10) {
       setIsFlipped(true);
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         setIsFlipped(false); // Возвращаем страницу в нормальное состояние через 10 секунд
         setScrollCount(0); // Сбрасываем счётчик
       }, 10000);
+
+      return () => clearTimeout(timer); // Очистка таймера при размонтировании
     }
   }, [scrollCount]);
 

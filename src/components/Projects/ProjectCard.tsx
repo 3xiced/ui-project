@@ -3,7 +3,19 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { BsGithub } from "react-icons/bs";
 
-const ProjectCard = (props) => {
+type ProjectCardProps = {
+  imgPath: string;
+  title: string;
+  description: string;
+  ghLink: string;
+};
+
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  imgPath,
+  title,
+  description,
+  ghLink,
+}) => {
   return (
     <Card
       className="project-card-view"
@@ -16,7 +28,7 @@ const ProjectCard = (props) => {
     >
       <Card.Img
         variant="top"
-        src={props.imgPath}
+        src={imgPath}
         alt="card-img"
         style={{
           height: "200px",
@@ -33,13 +45,13 @@ const ProjectCard = (props) => {
           alignContent: "space-between",
         }}
       >
-        <Card.Title>{props.title}</Card.Title>
+        <Card.Title>{title}</Card.Title>
         <Card.Text style={{ textAlign: "justify", fontSize: "15px" }}>
-          {props.description}
+          {description}
         </Card.Text>
         <Button
           variant="primary"
-          href={props.ghLink}
+          href={ghLink}
           target="_blank"
           style={{
             display: "flex",
@@ -53,10 +65,9 @@ const ProjectCard = (props) => {
         >
           <BsGithub /> &nbsp; GitHub
         </Button>
-        {"\n"}
-        {"\n"}
       </Card.Body>
     </Card>
   );
 };
+
 export default ProjectCard;
